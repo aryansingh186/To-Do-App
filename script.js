@@ -1,7 +1,6 @@
 const inputBox = document.getElementById("inputBox");
 const taskcontainer = document.getElementById("task-container");
 
-// Task add function
 function addTask() {
   if (inputBox.value.trim() === '') {
     alert("You must write something !!");
@@ -20,7 +19,6 @@ function addTask() {
   inputBox.value = "";
 }
 
-// Task click handler
 taskcontainer.addEventListener("click", function (e) {
   if (e.target.tagName === "LI") {
     e.target.classList.toggle("checked");
@@ -31,13 +29,12 @@ taskcontainer.addEventListener("click", function (e) {
   }
 }, false);
 
-// ✅ Save tasks in LocalStorage
 function saveData() {
   localStorage.setItem("tasks", taskcontainer.innerHTML);
 }
 
-// ✅ Show tasks when page reloads
 function showTask() {
   taskcontainer.innerHTML = localStorage.getItem("tasks") || "";
 }
 showTask();
+
